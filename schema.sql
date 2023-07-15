@@ -20,3 +20,27 @@ CREATE TABLE owners (
   full_name VARCHAR(255),
   age INTEGER
 );
+
+CREATE TABLE vets (
+  id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  age INT,
+  date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+  id INTEGER PRIMARY KEY,
+  vet_id INTEGER,
+  species_id INTEGER,
+  FOREIGN KEY (vet_id) REFERENCES vets (id),
+  FOREIGN KEY (species_id) REFERENCES species (id)
+);
+
+CREATE TABLE visits (
+  id INTEGER PRIMARY KEY,
+  vet_id INTEGER,
+  animal_id INTEGER,
+  visit_date DATE,
+  FOREIGN KEY (vet_id) REFERENCES vets (id),
+  FOREIGN KEY (animal_id) REFERENCES animals (id)
+);
