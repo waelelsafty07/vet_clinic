@@ -62,3 +62,88 @@ owner_id = CASE
   WHEN name IN ('Angemon', 'Boarmon') THEN (SELECT id FROM owners WHERE full_name = 'Dean Winchester')
 END
 WHERE species_id IS NULL AND owner_id IS NULL;
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('William Tatcher', 45, '2000-04-23');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Maisy Smith', 26, '2019-01-17');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Stephanie Mendez', 64, '1981-05-04');
+
+INSERT INTO vets (name, age, date_of_graduation)
+VALUES ('Jack Harkness', 38, '2008-06-08');
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES ((SELECT id FROM vets WHERE name = 'William Tatcher'), 1);
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 2);
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 1);
+
+INSERT INTO specializations (vet_id, species_id)
+VALUES ((SELECT id FROM vets WHERE name = 'Jack Harkness'), 2);
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'William Tatcher'), 1, '2020-05-24');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 1, '2020-07-22');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Jack Harkness'), 2, '2021-02-02');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 3, '2020-01-05');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 3, '2020-03-08');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 3, '2020-05-14');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 4, '2021-05-04');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Jack Harkness'), 5, '2021-02-24');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 6, '2019-12-21');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'William Tatcher'), 6, '2020-08-10');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 6, '2021-04-07');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 7, '2019-09-29');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Jack Harkness'), 8, '2020-10-03');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Jack Harkness'), 8, '2020-11-04');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 9, '2019-01-24');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 9, '2019-05-15');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 9, '2020-02-27');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Maisy Smith'), 9, '2020-08-03');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), 10, '2020-05-24');
+
+INSERT INTO visits (vet_id, animal_id, visit_date)
+VALUES ((SELECT id FROM vets WHERE name = 'William Tatcher'), 10, '2021-01-11');
+
