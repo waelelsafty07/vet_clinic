@@ -20,3 +20,19 @@ CREATE TABLE invoices (
   payed_at TIMESTAMP,
   medical_history__id INTEGER REFERENCES medical_histories(id),
 );
+
+
+CREATE TAble invoice_items (
+   id INTEGER PRIMARY KEY,
+   unit_price DECIMAL,
+   quntity INTEGER,
+   total_price DECIMAL,
+   invoice_id INTEGER REFERENCES invoices(id),
+   treatment_id INTEGER REFERENCES treatments(id),
+);
+
+CREATE TAble treatments (
+   id INTEGER PRIMARY KEY,
+   type VARCHAR,
+   name VARCHAR,
+);
